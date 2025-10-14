@@ -18,9 +18,9 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-
+    // Animation controller to run for 1 second and continue repeatedly
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       vsync: this,
     )..repeat(reverse: true); // Animation pulses in and out
 
@@ -31,8 +31,8 @@ class _SplashScreenState extends State<SplashScreen>
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
 
-    // Navigate to the main screen after 4 seconds
-    Timer(const Duration(seconds: 4), () {
+    // Navigate to the main screen after 8 seconds
+    Timer(const Duration(seconds: 8), () {
       if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const MusicPlayerScreen()),
